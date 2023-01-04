@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Formations index
+{% endblock %}
+
+{% block body %}
+	<h1>Formations index</h1>
+
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Id</th>
+				<th>Titre</th>
+				<th>Sous_titre</th>
+				<th>Description</th>
+				<th>Date_debut</th>
+				<th>Date_fin</th>
+				<th>actions</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for formation in formations %}
+				<tr>
+					<td>{{ formation.id }}</td>
+					<td>{{ formation.titre }}</td>
+					<td>{{ formation.sousTitre }}</td>
+					<td>{{ formation.description }}</td>
+					<td>{{ formation.dateDebut ? formation.dateDebut|date('Y-m-d H:i:s') : '' }}</td>
+					<td>{{ formation.dateFin ? formation.dateFin|date('Y-m-d H:i:s') : '' }}</td>
+					<td>
+						<a href="{{ path('app_formations_show', {'id': formation.id}) }}">show</a>
+						<a href="{{ path('app_formations_edit', {'id': formation.id}) }}">edit</a>
+					</td>
+				</tr>
+			{% else %}
+				<tr>
+					<td colspan="7">no records found</td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+
+	<a href="{{ path('app_formations_new') }}">Create new</a>
+
+	<div class="text-center mb-5">
+		<a class="btn btn-primary mt-5" href="{{ path('app_poste_index') }}">
+			Retour</a>
+	</div>
+{% endblock %}
