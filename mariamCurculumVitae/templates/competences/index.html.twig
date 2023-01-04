@@ -1,0 +1,61 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Competences index
+{% endblock %}
+
+{% block body %}
+
+	{% for competence in competences %}
+
+		<div class="container my-5">
+			<h1 class=" text-center text-bold ">Bienvenue sur le CV de Mariam OUEDRAOG0 !</h1>
+		</div>
+
+		<div class="card mb-3">
+
+			<div class="col-lg-12 col-md-12 col-sm-12 mb-3>
+				<div class=" card-body">
+				<h5 class="card-text mt-5"><b>Titre : </b> {{ competence.titre }}</h5>
+				<h5 class="card-text mb-5"> <b>Description : </b> {{ competence.desciption }}</h5>
+			    </div>
+			</div>
+		</div>
+
+		<div class="text-center mb-5">
+			<a class="btn btn-primary mt-5" href="{{ path('app_poste_index') }}">
+								Retour</a>
+		</div>
+	{% endfor %}
+
+	{# <h1>Competences index</h1>
+
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Id</th>
+				<th>Titre</th>
+				<th>Desciption</th>
+				<th>actions</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for competence in competences %}
+				<tr>
+					<td>{{ competence.id }}</td>
+					<td>{{ competence.titre }}</td>
+					<td>{{ competence.desciption }}</td>
+					<td>
+						<a href="{{ path('app_competences_show', {'id': competence.id}) }}">show</a>
+						<a href="{{ path('app_competences_edit', {'id': competence.id}) }}">edit</a>
+					</td>
+				</tr>
+			{% else %}
+				<tr>
+					<td colspan="4">no records found</td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+
+	<a href="{{ path('app_competences_new') }}">Create new</a> #}
+{% endblock %}
