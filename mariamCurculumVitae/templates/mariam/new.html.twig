@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Mariam{% endblock %}
+
+{% block body %}
+    <h1>Create new Mariam</h1>
+
+    {{ include('mariam/_form.html.twig') }}
+
+    <a href="{{ path('app_mariam_index') }}">back to list</a>
+{% endblock %}
