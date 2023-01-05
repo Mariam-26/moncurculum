@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Loisirs{% endblock %}
+
+{% block body %}
+    <h1>Loisirs</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ loisir.id }}</td>
+            </tr>
+            <tr>
+                <th>Titre</th>
+                <td>{{ loisir.titre }}</td>
+            </tr>
+            <tr>
+                <th>Type</th>
+                <td>{{ loisir.type }}</td>
+            </tr>
+            <tr>
+                <th>Image</th>
+                <td>{{ loisir.image }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_loisirs_index') }}">back to list</a>
+
+    <a href="{{ path('app_loisirs_edit', {'id': loisir.id}) }}">edit</a>
+
+    {{ include('loisirs/_delete_form.html.twig') }}
+{% endblock %}
