@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Mariam{% endblock %}
+
+{% block body %}
+    <h1>Edit Mariam</h1>
+
+    {{ include('mariam/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_mariam_index') }}">back to list</a>
+
+    {{ include('mariam/_delete_form.html.twig') }}
+{% endblock %}
