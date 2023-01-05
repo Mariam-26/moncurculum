@@ -1,0 +1,114 @@
+<nav
+	class="navbar navbar-expand-lg container-fluid text-end shadow nav-menu">
+
+	{# L'URL DE MON ACCUEIL #}
+	<a href=" {{ path('app_home') }} " class="navbar-brand"><img class=" w-75" src="{{ asset('') }}" alt="Logo"/>
+	</a>
+	<button class="nav bouton navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+		<span class="navbar-toggler-icon">
+			<i class="bi bi-list">Menu</i>
+		</span>
+	</button>
+
+	<div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+		<ul class="navbar-nav navBar">
+
+			<li class="nav-item">
+				<a class="nav-link" href=" {{ path('app_home') }}">Accueil</a>
+			</li>
+
+			{% if app.user %}
+				
+
+			{% else %}
+				<li class="nav-item">
+					<a class="nav-link" href=" {{ path('app_register') }}">Inscription</a>
+				</li>
+
+				<li class="nav-item">
+					<a class="nav-link" href=" {{ path('app_login') }} ">Connexion</a>
+				</li>
+			{% endif %}
+
+			{% if app.user %}
+
+			{% if app.user.roles[0] == 'ROLE_ADMIN' %}
+			<li class="nav-item dropdown">
+				<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+					Administrateur
+				</a>
+
+				<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+
+					<li>
+						<a class="dropdown-item" href="{{ path('admin') }}">Admin</a>
+					</li>
+
+					
+
+					<li>
+						<a class="dropdown-item" href="{{ path('app_poste_index') }}">
+							Poste</a>
+					</li>
+
+					<li>
+						<a class="dropdown-item" href=" {{ path('app_utilisateur_index') }}">Utilisateur</a>
+					</li>
+
+					<li>
+						<a class="dropdown-item" href=" {{ path('app_mariam_index') }}">Profil</a>
+					</li>
+
+					<li>
+						<a class="dropdown-item" href="{{ path('app_experiences_index') }}">Expériences</a>
+					</li>
+
+					<li>
+						<a class="dropdown-item" href=" {{ path('app_formations_index') }}">Formations</a>
+					</li>
+
+					<li>
+						<a class="dropdown-item" href=" {{ path('app_competences_index') }}">Compétences</a>
+					</li>
+
+					<li>
+						<a class="dropdown-item" href=" {{ path('app_formations_index') }}">Formations</a>
+					</li>
+
+					<li>
+						<a class="dropdown-item" href=" {{ path('app_realisations_index') }}">Réalisations</a>
+					</li>
+
+					<li>
+						<a class="dropdown-item" href=" {{ path('app_langues_index') }}">Langues</a>
+					</li>
+
+					<li>
+						<a class="dropdown-item" href=" {{ path('app_permis_index') }}">Permis</a>
+					</li>
+
+					<li>
+						<a class="dropdown-item" href=" {{ path('app_rqth_index') }}">RQTH</a>
+					</li>
+
+					<li>
+						<a class="dropdown-item" href=" {{ path('app_loisirs_index') }}">Loisirs</a>
+					</li>
+
+					<li>
+						<a class="dropdown-item" href=" {{ path('app_reseaux_index') }}">Réseaux</a>
+					</li>
+
+				</ul>
+			</li>
+
+			{% endif %}
+			
+			<li class="nav-item">
+				<a class="nav-link" href=" {{ path('app_logout') }} ">Déconnexion</a>
+			</li>
+			{% endif %}
+
+		</ul>
+	</div>
+</nav>
