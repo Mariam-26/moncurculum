@@ -1,0 +1,57 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mariam index{% endblock %}
+
+{% block body %}
+    <h1>Mariam index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Prenom</th>
+                <th>Nom</th>
+                <th>Titre</th>
+                <th>Accroche</th>
+                <th>Ecole</th>
+                <th>Entreprise</th>
+                <th>Email</th>
+                <th>Mobile</th>
+                <th>Image</th>
+                <th>Ville</th>
+                <th>Code_postal</th>
+                <th>Pays</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for mariam in mariams %}
+            <tr>
+                <td>{{ mariam.id }}</td>
+                <td>{{ mariam.prenom }}</td>
+                <td>{{ mariam.nom }}</td>
+                <td>{{ mariam.titre }}</td>
+                <td>{{ mariam.accroche }}</td>
+                <td>{{ mariam.ecole }}</td>
+                <td>{{ mariam.entreprise }}</td>
+                <td>{{ mariam.email }}</td>
+                <td>{{ mariam.mobile }}</td>
+                <td>{{ mariam.image }}</td>
+                <td>{{ mariam.ville }}</td>
+                <td>{{ mariam.codePostal }}</td>
+                <td>{{ mariam.pays }}</td>
+                <td>
+                    <a href="{{ path('app_mariam_show', {'id': mariam.id}) }}">show</a>
+                    <a href="{{ path('app_mariam_edit', {'id': mariam.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="14">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_mariam_new') }}">Create new</a>
+{% endblock %}
