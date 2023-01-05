@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mariam index
+{% endblock %}
+
+{% block body %}
+
+	<div class="container my-5">
+		<h1 class=" text-center text-bold ">Bienvenue sur le CV de Mariam OUEDRAOG0 !</h1>
+	</div>
+
+	{% for mariam in mariams %}
+
+		<div class="card mb-3">
+			<img src="{{ mariam.image }}" class="card-img-top" alt="Illustration de mariam {{mariam.image}}">
+			<div class="col-lg-12 col-md-12 col-sm-12 mb-3>
+				  <div class=" card-body">
+				<h5 class="card-text mt-5"> <b>Prenom : </b> {{ mariam.prenom }}</h5>
+				<h5 class="card-text"> <b>Nom : </b> {{ mariam.nom }}</h5>
+				<h5 class="card-text"> <b>Titre : </b> {{ mariam.titre }}</h5>
+				<h5 class="card-text"> <b>Accroche : </b> {{ mariam.accroche | slice(0,99)|raw }}...</h5>
+				<h5 class="card-text"> <b>Ecole : </b> {{ mariam.ecole }}</h5>
+				<h5 class="card-text"> <b>Entreprise : </b> {{ mariam.entreprise }}</h5>
+				<h5 class="card-text"> <b>Email : </b> {{ mariam.email }}</h5>
+				<h5 class="card-text"> <b>Mobile : </b> {{ mariam.mobile }}</h5>
+				<h5 class="card-text"> <b>Ville : </b> {{ mariam.ville }}</h5>
+				<h5 class="card-text"> <b>Code-postal : </b> {{ mariam.codePostal }}</h5>
+				<h5 class="card-text mb-5"> <b>Pays : </b> {{ mariam.pays }}</h>
+			
+			</div>
+		</div>
+	{% endfor %}
+
+	<div class="text-center mb-5">
+		<a href="{{ path('app_poste_index') }}" class="btn btn-primary mt-5">Voir plus</a>
+	</div>
+
+	{# {{ dump(mariams) }} #}
+{% endblock %}
