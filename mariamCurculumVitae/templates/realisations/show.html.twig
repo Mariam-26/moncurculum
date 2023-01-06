@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Realisations{% endblock %}
+
+{% block body %}
+    <h1>Realisations</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ realisation.id }}</td>
+            </tr>
+            <tr>
+                <th>Titre</th>
+                <td>{{ realisation.titre }}</td>
+            </tr>
+            <tr>
+                <th>Liens</th>
+                <td>{{ realisation.liens }}</td>
+            </tr>
+            <tr>
+                <th>Annee</th>
+                <td>{{ realisation.annee }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ realisation.description }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_realisations_index') }}">back to list</a>
+
+    <a href="{{ path('app_realisations_edit', {'id': realisation.id}) }}">edit</a>
+
+    {{ include('realisations/_delete_form.html.twig') }}
+{% endblock %}
