@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Realisations index{% endblock %}
+
+{% block body %}
+    <h1>Realisations index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Titre</th>
+                <th>Liens</th>
+                <th>Annee</th>
+                <th>Description</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for realisation in realisations %}
+            <tr>
+                <td>{{ realisation.id }}</td>
+                <td>{{ realisation.titre }}</td>
+                <td>{{ realisation.liens }}</td>
+                <td>{{ realisation.annee }}</td>
+                <td>{{ realisation.description }}</td>
+                <td>
+                    <a href="{{ path('app_realisations_show', {'id': realisation.id}) }}">show</a>
+                    <a href="{{ path('app_realisations_edit', {'id': realisation.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_realisations_new') }}">Create new</a>
+    <div class="text-center mb-5">
+		<a class="btn btn-primary mt-5" href="{{ path('app_poste_index') }}">
+			Retour</a>
+	</div>
+{% endblock %}
