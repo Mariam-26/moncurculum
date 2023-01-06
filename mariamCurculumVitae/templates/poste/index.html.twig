@@ -1,0 +1,76 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Poste index
+{% endblock %}
+
+{% block body %}
+<div class="container my-5">
+	<h1 class=" text-center text-bold ">Bienvenue sur le CV de Mariam OUEDRAOG0 !</h1>
+</div>
+
+{% for poste in postes %}
+	<div class="card mb-3">
+		<img src="{{ poste.logo }}" class="card-img-top" alt="Illustration de mariam {{poste.logo}}">
+		<div class="col-lg-12 col-md-12 col-sm-12 mb-3>
+			<div class=" card-body">
+			<h5 class="card-text mt-5"> <b>Titre : </b> {{  poste.titre }}</h5>
+			<h5 class="card-text mb-5"> <b>Accroche : </b> {{ poste.accroche | slice(0,99)|raw }}...</h5>
+		</div>
+	</div>
+</div>{% endfor %}
+
+<div class="text-center mb-5">
+{# <a href="{{ path('app_utilisateur_index') }}" class="btn btn-primary mt-5">Utilisateur</a> #}
+
+<a href="{{ path('app_competences_index') }}" class="btn btn-primary mt-5 m-2">Compétences</a>
+
+<a href="{{ path('app_experiences_index') }}" class="btn btn-primary mt-5 m-2">Expériences</a>
+
+<a href="{{ path('app_formations_index') }}" class="btn btn-primary mt-5 m-2">Formations</a>
+
+<a href="{{ path('app_realisations_index') }}" class="btn btn-primary mt-5 m-2">Réalisations</a>
+
+<a href="{{ path('app_rqth_index') }}" class="btn btn-primary mt-5 m-2">RQTH</a>
+
+<a href="{{ path('app_permis_index') }}" class="btn btn-primary mt-5 m-2">Permis</a>
+
+<a href="{{ path('app_langues_index') }}" class="btn btn-primary mt-5 m-2">Langues</a>
+
+<a href="{{ path('app_reseaux_index') }}" class="btn btn-primary mt-5 m-2">Réseaux</a>
+
+<a href="{{ path('app_loisirs_index') }}" class="btn btn-primary mt-5 m-2">Loisirs</a>
+</div>
+
+{# <table class="table">
+			        <thead>
+			            <tr>
+			                <th>Id</th>
+			                <th>Titre</th>
+			                <th>Accroche</th>
+			                <th>Logo</th>
+			                <th>actions</th>
+			            </tr>
+			        </thead>
+			        <tbody>
+			        {% for poste in postes %}
+			            <tr>
+			                <td>{{ poste.id }}</td>
+			                <td>{{ poste.titre }}</td>
+			                <td>{{ poste.accroche }}</td>
+			                <td>{{ poste.logo }}</td>
+			                <td>
+			                    <a href="{{ path('app_poste_show', {'id': poste.id}) }}">show</a>
+			                    <a href="{{ path('app_poste_edit', {'id': poste.id}) }}">edit</a>
+			                </td>
+			            </tr>
+			        {% else %}
+			            <tr>
+			                <td colspan="5">no records found</td>
+			            </tr>
+			        {% endfor %}
+			        </tbody>
+			    </table>
+			
+			    <a href="{{ path('app_poste_new') }}">Create new</a> #}
+
+                {% endblock %}
