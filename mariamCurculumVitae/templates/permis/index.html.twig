@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Permis index
+{% endblock %}
+
+{% block body %}
+
+
+<div class="row mt-5">
+	{% for permi in permis %}
+
+		<div class="col-lg-6 col-md-6 col-sm-12 mb-3 m-auto  text-center>
+			
+						    <div class=" card">
+			<div class="card-body">
+
+				<h5 class="card-title">{{ permi.titre }}</h5>
+				<h5 class="card-title">{{ permi.categories }}</h5>
+				<div class="text-center mb-5">
+					<a class="btn btn-primary mt-5" href="{{ path('app_poste_index') }}">
+						Retour</a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</div></div></div>{% endfor %}</div>{% endblock %}
