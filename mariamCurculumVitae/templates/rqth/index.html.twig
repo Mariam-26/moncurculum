@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Rqth index{% endblock %}
+
+{% block body %}
+    <h1>Rqth index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Titre</th>
+                <th>Rqth</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for rqth in rqths %}
+            <tr>
+                <td>{{ rqth.id }}</td>
+                <td>{{ rqth.titre }}</td>
+                <td>{{ rqth.rqth ? 'Yes' : 'No' }}</td>
+                <td>
+                    <a href="{{ path('app_rqth_show', {'id': rqth.id}) }}">show</a>
+                    <a href="{{ path('app_rqth_edit', {'id': rqth.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_rqth_new') }}">Create new</a>
+{% endblock %}
